@@ -1,9 +1,9 @@
 import json
 from openai import OpenAI
-
-client = OpenAI()
+import os
 
 def plan_tasks(manager_goal):
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = f"""
     You re a productivity agent for a newcomer/onboarder engineer at a company.
     Break this goal down into smaller tasks, arranged according to priority: High, Medium, Low.
